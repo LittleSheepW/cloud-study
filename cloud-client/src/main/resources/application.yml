@@ -1,13 +1,22 @@
 server:
   port: 8082
+
 eureka:
   instance:
     prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
   client:
     service-url:    #指定服务注册中心的位置
       defaultZone: http://127.0.0.1:6868/eureka/
+
 spring:
   application:
     name: ww-client
+
 app:
   service-url: http://WW-SERVER/
+
+feign:
+  hystrix:
+    enabled: true   #开启Hystrix熔断器
+
+
