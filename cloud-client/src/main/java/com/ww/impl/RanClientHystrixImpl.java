@@ -1,4 +1,4 @@
-package com.ww.feign.hystrix.impl;
+package com.ww.impl;
 
 import com.ww.feign.RanClient;
 import org.springframework.stereotype.Component;
