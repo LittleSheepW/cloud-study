@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
  * RibbonLoadBalancerClient将服务名通过负载均衡策略转为了实际的ip和端口后再apply给restTemplate。
  * 如果不加@LoadBalanced注解那么无法将服务名转换为实际的ip和端口，所以会抛出异常。
  *
- * 实际上利用了RestTemplate的拦截器，使用RestTemplateCustomizer对所有标注了@LoadBalanced的RestTemplate Bean
- * 添加了一个LoadBalancerInterceptor拦截器，而这个拦截器的作用就是对请求的URI进行转换获取到具体应该请求哪个服务实例ServiceInstance。
- * @see org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration loadBalancedRestTemplateInitializerDeprecated（）
+ * 实际上利用了RestTemplate的拦截器，使用RestTemplateCustomizer对所有标注了@LoadBalanced的RestTemplate Bean添加了
+ * 一个LoadBalancerInterceptor拦截器，而这个拦截器的作用就是对请求的URI进行转换获取到具体应该请求哪个服务实例ServiceInstance。
+ * {@link org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration} loadBalancedRestTemplateInitializerDeprecated（）
  *
  * @author: Sun
  * @create: 2019-04-25 10:35

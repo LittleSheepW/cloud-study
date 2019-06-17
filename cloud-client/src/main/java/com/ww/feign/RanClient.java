@@ -1,6 +1,6 @@
 package com.ww.feign;
 
-import com.ww.feign.hystrix.impl.RanClientHystrixImpl;
+import com.ww.impl.RanClientHystrixImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create: 2019-04-25 10:19
  * @version: v1.0
  */
-@FeignClient(value = "ww-server", fallback = RanClientHystrixImpl.class)
+@FeignClient(value = "com.ww-server", fallback = RanClientHystrixImpl.class)
 public interface RanClient {
 
 	/**

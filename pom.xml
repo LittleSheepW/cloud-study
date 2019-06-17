@@ -4,13 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ww</groupId>
+    <groupId>com.com.ww</groupId>
     <artifactId>cloud-study</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>cloud-eureka</module>
+        <module>cloud-eureka-6868</module>
         <module>cloud-server</module>
         <module>cloud-client</module>
+        <module>cloud-eureka-6869</module>
+        <module>cloud-eureka-6870</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -50,6 +52,27 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>cloud-study</finalName>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <delimiters>
+                        <delimit>$</delimit>
+                    </delimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <repositories>
         <repository>

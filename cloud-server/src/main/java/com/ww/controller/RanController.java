@@ -1,8 +1,13 @@
 package com.ww.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * RanController Provide services.
@@ -14,8 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: v1.0
  */
 @RestController
-@RequestMapping(value = "ran")
+@RequestMapping(value = "/ran")
 public class RanController {
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     /**
      * 通过id获取ran
@@ -30,6 +38,26 @@ public class RanController {
     public void getRanById(@PathVariable String id) {
         System.out.println("我是ranran" + id + "号");
     }
-    
+
+    /**
+     * Eureka服务发现，提供此接口供使用放来了解我们的微服务信息
+     * @param:
+     * @throws:
+     * @return: java.lang.Object
+     * @author: Sun
+     * @date: 2019-06-16 16:55
+     */
+    @RequestMapping(value = "/discovery")
+    public Object discovery() {
+        List<String> services = discoveryClient.getServices();
+        System.out.println("services list:" + services);
+
+        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-SERVER");
+        for (ServiceInstance instance : instances) {
+            System.out.println("instance info:" + instance.getServiceId() + "\t" + instance.getHost() + "\t" + instance.getPort() + "\t" + instance.getUri());
+        }
+        return this.discoveryClient;
+    }
+
 
 }
