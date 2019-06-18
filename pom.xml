@@ -13,6 +13,7 @@
         <module>cloud-client</module>
         <module>cloud-eureka-6869</module>
         <module>cloud-eureka-6870</module>
+        <module>cloud-api</module>
     </modules>
     <packaging>pom</packaging>
 

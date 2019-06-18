@@ -6,15 +6,16 @@ eureka:
     prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址
     instance-id: cloud-client-8082  #eurrka服务列表超链接处名称
   client:
+    register-with-eureka: false     #是否向服务注册中心注册自己
     service-url:    #指定服务注册中心的位置
-      defaultZone: http://127.0.0.1:6868/eureka/
+      defaultZone: http://eureka6868.com:6868/eureka/,http://eureka6869.com:6869/eureka/,http://eureka6870.com:6870/eureka/
 
 spring:
   application:
-    name: com.ww-client
+    name: cloud-client
 
 app:
-  service-url: http://WW-SERVER/
+  service-url: http://CLOUD-SERVER
 
 feign:
   hystrix:
