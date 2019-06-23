@@ -6,6 +6,7 @@ import com.ww.vo.StudentVo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
@@ -30,11 +31,18 @@ import java.util.List;
 public interface ClientFeign {
 
 	/**
+	 * 查询学生列表
+	 * @return
+	 */
+	@RequestMapping(value = "/student", method = RequestMethod.GET)
+	List<StudentVo> getStudentList();
+
+	/**
 	 * 通过id获取Student
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping(value = "/student/{id}")
+	@RequestMapping(value = "/student/{id}", method = RequestMethod.GET)
 	StudentVo getStudentById(@PathVariable(value = "id") Integer id);
 
 	/**
@@ -42,14 +50,20 @@ public interface ClientFeign {
 	 * @param studentPvo
 	 * @return
 	 */
-	@RequestMapping(value = "/student")
+	@RequestMapping(value = "/student", method = RequestMethod.POST)
 	StudentVo saveStudent(StudentPvo studentPvo);
 
 	/**
-	 * 查询学生列表
-	 * @return
+	 * 修改学生
+	 * @param student
 	 */
-	@RequestMapping(value = "/student")
-	List<StudentVo> getStudentList();
+	@RequestMapping(value = "/student", method = RequestMethod.PUT)
+	void updateStudent(StudentPvo student);
 
+	/**
+	 * 删除学生
+	 * @param id
+	 */
+	@RequestMapping(value = "/student/{id}", method = RequestMethod.DELETE)
+	void deleteStudent(@PathVariable(value = "id") Integer id);
 }

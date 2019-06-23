@@ -1,26 +1,30 @@
-package com.ww.vo;
+package com.ww.entity;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
+import javax.persistence.*;
 
 /**
- * StudentVo entity.
+ * The Student entity.
  * @author: Sun
  * @create: 2019-06-13 11:28
  * @version: v1.0
  */
+@Entity
+@Table
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentVo implements Serializable {
+public class Student {
 
     /**
      * id
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     /**
@@ -34,7 +38,12 @@ public class StudentVo implements Serializable {
     private Long createTime;
 
     /**
-     * 数据源
+     * 删除状态 {@link com.ww.constant.DeleteState}
+     */
+    private Integer deleteState;
+
+    /**
+     * 数据源 {@link com.ww.constant.DbSource}
      */
     private String dbSource;
 

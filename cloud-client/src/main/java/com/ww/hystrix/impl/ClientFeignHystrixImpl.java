@@ -6,6 +6,7 @@ import com.ww.vo.StudentVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -35,6 +36,16 @@ public class ClientFeignHystrixImpl implements ClientFeign {
     @Override
     public List<StudentVo> getStudentList() {
         log.warn("[getStudentList:{}] ", "触发熔断方法");
-        return null;
+        return new ArrayList<>();
+    }
+
+    @Override
+    public void updateStudent(StudentPvo student) {
+        log.warn("[updateStudent:{}] ", "触发熔断方法");
+    }
+
+    @Override
+    public void deleteStudent(Integer id) {
+        log.warn("[deleteStudent:{}] ", "触发熔断方法");
     }
 }

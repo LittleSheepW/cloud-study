@@ -14,12 +14,6 @@ public class StudentPvo {
 
     private Integer id;
 
-    private Integer studentId;
-
     private String name;
-
-    private Long createTime;
-
-    private Integer deleteState;
 
 }

@@ -14,55 +14,29 @@ import java.util.List;
  */
 public interface ClientService {
 
-    /**
-     * 通过id获取Student (通过RestTemplate进行服务调用)
-     *
-     * @param:
-     * @throws:
-     * @return: void
-     * @author: Sun
-     * @date: 2019-04-25 11:48
-     */
+    List getStudentListByRestTemplate();
+
     StudentVo getStudentByRestTemplate(Integer id);
 
-    /**
-     * 保存学生 (通过RestTemplate进行服务调用)
-     * @param student
-     */
     StudentVo saveStudentByRestTemplate(StudentPvo student);
 
-    /**
-     * 查询Student List (通过RestTemplate进行服务调用)
-     * @param:
-     * @throws:
-     * @return: java.util.List<com.ww.vo.StudentVo>
-     * @author: Sun
-     * @date: 2019-06-18 17:18
-     */
-    List<StudentVo> getStudentListByRestTemplate();
+    void updateStudentByRestTemplate(StudentPvo studentPvo);
+
+    void deleteStudentByRestTemplate(Integer id);
 
     /**
-     * 通过id获取Student (通过Feign进行服务调用)
-     * @param:
-     * @throws:
-     * @return: void
-     * @author: Sun
-     * @date: 2019-04-25 11:48
+     * 以上是通过RestTemplate方式进行服务调用
+     * ------------------------------------------------
+     * 以下是通过Feign进行调用
      */
-    StudentVo getStudentByFeign(Integer id);
 
-    /**
-     * 保存学生 (通过Feign进行服务调用)
-     * @param student
-     * @return
-     */
-    StudentVo saveStudentByFeign(StudentPvo student);
-
-    /**
-     * 查询学生列表 (通过Feign进行服务调用)
-     * @param
-     * @return
-     */
     List<StudentVo> getStudentListByFeign();
 
+    StudentVo getStudentByFeign(Integer id);
+
+    StudentVo saveStudentByFeign(StudentPvo student);
+
+    void updateStudentByFeign(StudentPvo studentPvo);
+
+    void deleteStudentByFeign(Integer id);
 }

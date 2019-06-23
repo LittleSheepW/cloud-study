@@ -30,6 +30,11 @@ public class ClientServiceImpl implements ClientService {
     private ClientFeign clientFeign;
 
     @Override
+    public List getStudentListByRestTemplate() {
+        return restTemplate.getForObject(appServiceUrl + "/student", List.class);
+    }
+
+    @Override
     public StudentVo getStudentByRestTemplate(Integer id) {
         return restTemplate.getForObject(appServiceUrl + "/student/{1}", StudentVo.class, id);
     }
@@ -40,8 +45,18 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<StudentVo> getStudentListByRestTemplate() {
-        return restTemplate.getForObject(appServiceUrl + "/student", List.class);
+    public void updateStudentByRestTemplate(StudentPvo studentPvo) {
+        restTemplate.put(appServiceUrl + "/student", studentPvo);
+    }
+
+    @Override
+    public void deleteStudentByRestTemplate(Integer id) {
+        restTemplate.delete(appServiceUrl + "/student/{1}", id);
+    }
+
+    @Override
+    public List<StudentVo> getStudentListByFeign() {
+        return clientFeign.getStudentList();
     }
 
     @Override
@@ -55,8 +70,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<StudentVo> getStudentListByFeign() {
-        return clientFeign.getStudentList();
+    public void updateStudentByFeign(StudentPvo student) {
+        clientFeign.updateStudent(student);
+    }
+
+    @Override
+    public void deleteStudentByFeign(Integer id) {
+        clientFeign.deleteStudent(id);
     }
 
     /**

@@ -4,12 +4,12 @@ Start learning the SpringCloud framework. Record the receipt.
 
 * **项目结构**
 > `cloud-study`  聚合工程父工程
->> `cloud-eureka`  Eureka服务端工程  
+>> `cloud-eureka-6868、6869、6870`  Eureka服务端集群  
 >> `cloud-client`  Eureka客户端 调用服务的客户端，此客户端调用另一客户端(服务端)    
->> `cloud-server`  Eureka客户端 被调用服务的客户端(服务端),此工程提供一个对外的接口，由cloud-client来进行调用。  
+>> `cloud-server-8081、8082、8083`  Eureka客户端集群 被调用服务的客户端(服务端)，每个服务对应自己的数据库。
   
 ###### 阶段历程    
 * 第一阶段: 项目中集成Eureka组件并搭建Eureka集群。
-* 第二阶段: 项目中集成Ribbon客户端负载均衡组件，服务于服务之间通过RestTemplate进行相互调用。
-* 第三阶段: 项目中集成Hystrix组件，防止对某一个故障服务持续访问引起服务雪崩现象。   
-    
+* 第二阶段: 项目中集成Ribbon客户端负载均衡组件，服务与服务之间通过RestTemplate进行相互调用。
+* 第三阶段: 项目中集成Feign组件，完成对服务提供方接口绑定，简化使用Ribbon，面向接口调用服务。
+* 第四阶段: 项目中集成Hystrix组件，防止对某一个故障服务持续访问引起服务雪崩现象。   

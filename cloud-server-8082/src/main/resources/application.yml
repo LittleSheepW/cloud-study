@@ -1,0 +1,30 @@
+server:
+  port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址 (eureka服务列表超链接处显示ip地址)
+    instance-id: cloud-server-8082  #eurrka服务列表超链接处名称
+  client:
+    service-url:    #指定服务注册中心的位置
+      defaultZone: http://eureka6868.com:6868/eureka/,http://eureka6869.com:6869/eureka/,http://eureka6870.com:6870/eureka/
+
+spring:
+  application:
+    name: cloud-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/student2?characterEncoding=utf-8
+    username: root
+    password: 123456
+  jpa:
+    database: mysql
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+# 配置eureka /actuator/info信息
+info:
+  app.name: cloud-study
+  company.name: www.sunzhongwei.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$

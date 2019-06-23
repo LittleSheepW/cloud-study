@@ -4,18 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.com.ww</groupId>
+    <groupId>com.ww</groupId>
     <artifactId>cloud-study</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
     <modules>
-        <module>cloud-eureka-6868</module>
-        <module>cloud-server</module>
         <module>cloud-client</module>
+        <module>cloud-api</module>
+        <module>cloud-eureka-6868</module>
         <module>cloud-eureka-6869</module>
         <module>cloud-eureka-6870</module>
-        <module>cloud-api</module>
+        <module>cloud-server-8081</module>
+        <module>cloud-server-8082</module>
+        <module>cloud-server-8083</module>
     </modules>
-    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -27,7 +30,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.1.RELEASE</version>
-        <relativePath/>
+        <relativePath/>  <!-- lookup parent from repository -->
     </parent>
 
     <dependencyManagement>
@@ -41,18 +44,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <finalName>cloud-study</finalName>
