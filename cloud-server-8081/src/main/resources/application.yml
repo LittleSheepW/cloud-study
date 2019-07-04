@@ -22,9 +22,10 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: update
+
 # 配置eureka /actuator/info信息
 info:
   app.name: cloud-study
   company.name: www.sunzhongwei.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
+  build.artifactId: @project.artifactId@
+  build.version: @project.version@
