@@ -41,6 +41,9 @@ public class StudentController {
     @RequestMapping(method = RequestMethod.GET)
     public List<StudentVo> findAll() {
         log.info("[findAll] [无入参]");
+        if (true) {
+            throw new RuntimeException();
+        }
         return studentService.findAll();
     }
 

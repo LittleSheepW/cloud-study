@@ -26,3 +26,10 @@ info:
   build.artifactId: @project.artifactId@
   build.version: @project.version@
 
+management:
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: hystrix.stream
+

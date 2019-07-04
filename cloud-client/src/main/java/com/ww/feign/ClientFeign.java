@@ -1,5 +1,6 @@
 package com.ww.feign;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.ww.hystrix.impl.ClientFeignHystrixImpl;
 import com.ww.pvo.StudentPvo;
 import com.ww.vo.StudentVo;

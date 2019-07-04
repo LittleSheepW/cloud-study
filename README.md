@@ -12,4 +12,5 @@ Start learning the SpringCloud framework. Record the receipt.
 * 第一阶段: 项目中集成Eureka组件并搭建Eureka集群。
 * 第二阶段: 项目中集成Ribbon客户端负载均衡组件，服务与服务之间通过RestTemplate进行相互调用。
 * 第三阶段: 项目中集成Feign组件，完成对服务提供方接口绑定，简化使用Ribbon，面向接口调用服务。
-* 第四阶段: 项目中集成Hystrix组件，防止对某一个故障服务持续访问引起服务雪崩现象。   
+* 第四阶段: 项目中集成Hystrix组件，防止对某一个故障服务持续访问引起服务雪崩现象。 
+* 第五阶段：项目中集成Hystrix Dashboard组件，监控服务情况。 

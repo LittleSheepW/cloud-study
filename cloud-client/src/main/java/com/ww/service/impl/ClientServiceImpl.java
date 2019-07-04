@@ -1,5 +1,6 @@
 package com.ww.service.impl;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.ww.feign.ClientFeign;
 import com.ww.pvo.StudentPvo;
 import com.ww.service.ClientService;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -82,7 +84,8 @@ public class ClientServiceImpl implements ClientService {
     /**
      * 单个熔断方法
      */
-    public void getStudentByRestTemplateError() {
+    public List getStudentByRestTemplateError() {
         System.out.println("我是普通Hystrix熔断器方法");
+        return new ArrayList();
     }
 }

@@ -18,6 +18,7 @@
         <module>cloud-server-8081</module>
         <module>cloud-server-8082</module>
         <module>cloud-server-8083</module>
+        <module>cloud-hystrix-dashboard</module>
     </modules>
 
     <properties>

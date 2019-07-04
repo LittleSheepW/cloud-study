@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: cloud-hystrix-dasdboard
+
+server:
+  port: 8888
+
