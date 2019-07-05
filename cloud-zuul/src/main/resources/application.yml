@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: cloud-zuul
+
+server:
+  port: 8989
+
+eureka:
+  instance:
+    prefer-ip-address: true   #以IP地址注册到服务中心，相互注册使用IP地址 (eureka服务列表超链接处显示ip地址)
+    instance-id: cloud-zuul-8989  #eurrka服务列表超链接处名称
+  client:
+    serviceUrl:
+      defaultZone: http://eureka6868.com:6868/eureka/,http://eureka6869.com:6869/eureka/,http://eureka6870.com:6870/eureka/
+
+zuul:
+  routes:
+    cloud-client:
+      path: /cloud-client/**
+      serviceId: cloud-client
+    cloud-server:
+      path: /cloud-server/**
+      serviceId: cloud-server
