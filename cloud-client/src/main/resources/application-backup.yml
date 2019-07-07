@@ -23,8 +23,8 @@ feign:
 info:
   app.name: cloud-study
   company.name: www.sunzhongwei.com
-  build.artifactId: @project.artifactId@
-  build.version: @project.version@
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
 
 management:
   endpoints:
@@ -32,4 +32,3 @@ management:
       base-path: /
       exposure:
         include: hystrix.stream
-

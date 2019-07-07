@@ -27,5 +27,5 @@ spring:
 info:
   app.name: cloud-study
   company.name: www.sunzhongwei.com
-  build.artifactId: @project.artifactId@
+  build.artifactId: $project.artifactId$
   build.version: @project.version@

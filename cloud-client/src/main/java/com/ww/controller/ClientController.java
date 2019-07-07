@@ -163,7 +163,4 @@ public class ClientController {
         clientService.deleteStudentByFeign(id);
         return ApiResult.success();
     }
-
-
-
 }
