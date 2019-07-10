@@ -16,5 +16,6 @@ Start learning the SpringCloud framework. Record the receipt.
 * 第五阶段：项目中集成Hystrix Dashboard组件，监控服务情况。
 * 第六阶段：项目中集成Zuul组件，所有请求通过服务网关进行转发。 
 * 第七阶段：项目中集成swagger组件，cloud-server-8081项目可以根据接口自动生成接口文档。
-* 第八阶段：项目中集成Config组件，将cloud-client服务配置文件application.yml托管至gitee仓库，搭建cloud-config-server服务，启动cloud-client项目时动态从git仓库中拉取对应配置文件。
+* 第八阶段：项目中集成config组件，将cloud-client服务配置文件application.yml托管至gitee仓库，搭建cloud-config-server服务，启动cloud-client项目时动态从git仓库中拉取对应配置文件。
 * 第九阶段：项目中集成sleuth'组件，构建链路追踪机制。
+* 第十阶段：项目中集成zipkin组件
